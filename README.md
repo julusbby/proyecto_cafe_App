@@ -1,27 +1,41 @@
-# Coffee House App ☕
+# ☕ Coffee House App
+
+## Descripción
+
+Coffee House App es un prototipo de aplicación móvil desarrollado en Flutter para una cafetería. El objetivo del proyecto es practicar widgets de Flutter, especialmente la creación y uso de botones personalizados, además de aplicar conceptos de diseño de interfaces móviles.
 
 ## Fase 1 - Configuración Inicial
 
-En esta primera fase se realizó la creación y configuración del proyecto Flutter. Se organizó la estructura básica del proyecto mediante carpetas para pantallas (`screens`), widgets personalizados (`widgets`) y constantes (`constants`), con el objetivo de mantener un código más ordenado y escalable.
-
-Además, se configuró un tema personalizado para la aplicación utilizando una paleta de colores inspirada en una cafetería, y se creó la pantalla inicial de login que servirá como punto de entrada para el usuario.
-
-También se realizó la integración del proyecto con Git y GitHub para llevar control de versiones y facilitar el desarrollo colaborativo.
-
-### Avances realizados
+Durante esta fase se realizó:
 
 * Creación del proyecto Flutter.
-* Configuración del entorno de desarrollo.
-* Organización de la estructura de carpetas.
-* Definición de colores globales para la aplicación.
-* Configuración del tema principal.
-* Creación de la pantalla inicial (Login Screen).
-* Inicialización y conexión del repositorio Git.
+* Configuración del repositorio Git y conexión con GitHub.
+* Organización inicial de carpetas del proyecto.
+* Definición de colores personalizados para la aplicación.
+* Creación de la pantalla de Login.
+* Integración del logo de la cafetería mediante assets locales.
+* Configuración del archivo `pubspec.yaml` para el manejo de recursos.
 
-### Próximos pasos
+## Estado Actual
 
-* Diseñar visualmente la pantalla de login.
-* Implementar botones personalizados.
-* Agregar navegación entre pantallas.
-* Desarrollar el catálogo de cafés.
-* Implementar un menú flotante expandible.
+La aplicación cuenta con una pantalla de bienvenida que muestra:
+
+* Logo de Coffee House.
+* Diseño basado en una paleta de colores café y crema.
+* Estructura inicial para la autenticación de usuarios.
+
+## Tecnologías Utilizadas
+
+* Flutter
+* Dart
+* Git
+* GitHub
+
+## Próximas Mejoras
+
+* Implementar campos de usuario y contraseña.
+* Crear botones personalizados reutilizables.
+* Navegación entre pantallas.
+* Catálogo de cafés.
+* Carrito de compras simulado.
+* Almacenamiento local de favoritos.
