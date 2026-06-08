@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../constants/app_colors.dart';
 import '../widgets/custom_button.dart';
+import 'home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -14,6 +15,7 @@ class LoginScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              //IMAGEN
               Image.asset(
                 'lib/assets/images/logo.png',
                 height: 180,
@@ -22,6 +24,7 @@ class LoginScreen extends StatelessWidget {
                 },
               ),
               const SizedBox(height: 30),
+              //TEXTTO BIENVENIDO
               const Text(
                 "Bienvenido",
                 style: TextStyle(
@@ -30,7 +33,76 @@ class LoginScreen extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 30),
+              //TEXTOO INICIAR
+              Text(
+                "Inicia sesión para continuar",
+                style: TextStyle(color: Colors.white70, fontSize: 16),
+              ),
+              SizedBox(height: 30),
+              //USUARIO
+              TextField(
+                decoration: InputDecoration(
+                  hintText: "Usuario",
+                  prefixIcon: Icon(Icons.person_outline),
+                  filled: true,
+                  fillColor: Colors.white.withOpacity(0.08),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: BorderSide.none,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 15),
+              //CONTRASEÑA
+              TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  hintText: "Contraseña",
+                  prefixIcon: Icon(Icons.lock_outline),
+                  suffixIcon: Icon(Icons.visibility_off_outlined),
+                  filled: true,
+                  fillColor: Colors.white.withOpacity(0.08),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: BorderSide.none,
+                  ),
+                ),
+              ),
+              //TEXTO OLVIDAR
+              SizedBox(height: 10),
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  "¿Olvidaste tu contraseña?",
+                  style: TextStyle(color: AppColors.crema),
+                ),
+              ),
+              //BOTON INGRESAS
+              SizedBox(height: 20),
+              CustomButton(
+                text: "Ingresar",
+                onPressed: () {
+                  Navigator.push(
+                    context, 
+                    MaterialPageRoute(
+                      builder: (context) => HomeScreen(),
+                    ),
+                  );
+                  print("Login");
+                },
+              ),
+              //BOTON REGISTRAR
+              SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "¿No tienes cuenta?",
+                    style: TextStyle(color: Colors.white70),
+                  ),
+                  TextButton(onPressed: () {}, child: Text("Registrate")),
+                ],
+              ),
             ],
           ),
         ),
