@@ -17,7 +17,7 @@ class LoginScreen extends StatelessWidget {
             children: [
               //IMAGEN
               Image.asset(
-                'lib/assets/images/logo.png',
+                'assets/images/logo.png',
                 height: 180,
                 errorBuilder: (context, error, stackTrace) {
                   return Text(error.toString());
@@ -83,10 +83,8 @@ class LoginScreen extends StatelessWidget {
                 text: "Ingresar",
                 onPressed: () {
                   Navigator.push(
-                    context, 
-                    MaterialPageRoute(
-                      builder: (context) => HomeScreen(),
-                    ),
+                    context,
+                    MaterialPageRoute(builder: (context) => HomeScreen()),
                   );
                   print("Login");
                 },
