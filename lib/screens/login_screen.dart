@@ -3,8 +3,18 @@ import '../constants/app_colors.dart';
 import '../widgets/custom_button.dart';
 import 'home_screen.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final usuarioController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  bool ocultarPassword = true;
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +51,7 @@ class LoginScreen extends StatelessWidget {
               SizedBox(height: 30),
               //USUARIO
               TextField(
+                controller: usuarioController,
                 decoration: InputDecoration(
                   hintText: "Usuario",
                   prefixIcon: Icon(Icons.person_outline),
@@ -55,11 +66,24 @@ class LoginScreen extends StatelessWidget {
               const SizedBox(height: 15),
               //CONTRASEÑA
               TextField(
-                obscureText: true,
+                controller: passwordController,
+                obscureText: ocultarPassword,
                 decoration: InputDecoration(
                   hintText: "Contraseña",
                   prefixIcon: Icon(Icons.lock_outline),
-                  suffixIcon: Icon(Icons.visibility_off_outlined),
+                  //ojo
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      ocultarPassword
+                          ? Icons.visibility_off_outlined
+                          : Icons.visibility_outlined,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        ocultarPassword = !ocultarPassword;
+                      });
+                    },
+                  ),
                   filled: true,
                   fillColor: Colors.white.withOpacity(0.08),
                   border: OutlineInputBorder(
@@ -82,11 +106,23 @@ class LoginScreen extends StatelessWidget {
               CustomButton(
                 text: "Ingresar",
                 onPressed: () {
+                  if (usuarioController.text.trim().isEmpty ||
+                      passwordController.text.trim().isEmpty) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text("Debes ingresar usuario y contraseña"),
+                      ),
+                    );
+                    return;
+                  }
+
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomeScreen()),
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          HomeScreen(nombreUsuario: usuarioController.text),
+                    ),
                   );
-                  print("Login");
                 },
               ),
               //BOTON REGISTRAR
