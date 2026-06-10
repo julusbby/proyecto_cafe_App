@@ -6,7 +6,9 @@ void main() {
   runApp(const CafeApp());
 }
 
+//No cambia
 class CafeApp extends StatelessWidget {
+  //Constructor
   const CafeApp({super.key});
 
   @override

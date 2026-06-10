@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../constants/app_colors.dart';
+import '../widgets/cafe_button.dart';
 
 class HomeScreen extends StatefulWidget {
   final String nombreUsuario;
@@ -55,7 +56,15 @@ class _HomeScreenState extends State<HomeScreen> {
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [
-                        ElevatedButton(
+                        CustomButton(
+                          text: "Espresso",
+                          icon: Icons.coffee,
+                          backgroundColor: cafeSeleccionado == "Espresso"
+                              ? AppColors.crema
+                              : Colors.grey.shade800,
+                          foregroundColor: cafeSeleccionado == "Espresso"
+                              ? AppColors.cafeOscuro
+                              : Colors.white,
                           onPressed: () {
                             setState(() {
                               nombreCafe = "Espresso";
@@ -67,34 +76,18 @@ class _HomeScreenState extends State<HomeScreen> {
                               cafeSeleccionado = "Espresso";
                             });
                           },
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Icon(Icons.coffee, size: 18),
-                              SizedBox(width: 6),
-                              Text("Espresso"),
-                            ],
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            elevation: 6,
-                            backgroundColor: cafeSeleccionado == "Espresso"
-                                ? AppColors.crema
-                                : Colors.grey.shade800,
-                            foregroundColor: cafeSeleccionado == "Espresso"
-                                ? AppColors.cafeOscuro
-                                : Colors.white,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 15,
-                              vertical: 14,
-                            ),
-                          ),
                         ),
                         SizedBox(width: 12),
 
-                        ElevatedButton(
+                        CustomButton(
+                          text: "Capuccino",
+                          icon: Icons.local_cafe,
+                          backgroundColor: cafeSeleccionado == "Capuccino"
+                              ? AppColors.crema
+                              : Colors.grey.shade800,
+                          foregroundColor: cafeSeleccionado == "Capuccino"
+                              ? AppColors.cafeOscuro
+                              : Colors.white,
                           onPressed: () {
                             setState(() {
                               nombreCafe = "Capuccino";
@@ -106,34 +99,19 @@ class _HomeScreenState extends State<HomeScreen> {
                               cafeSeleccionado = "Capuccino";
                             });
                           },
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Icon(Icons.local_cafe, size: 18),
-                              SizedBox(width: 6),
-                              Text("Capuccino"),
-                            ],
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            elevation: 6,
-                            backgroundColor: cafeSeleccionado == "Capuccino"
-                                ? AppColors.crema
-                                : Colors.grey.shade800,
-                            foregroundColor: cafeSeleccionado == "Capuccino"
-                                ? AppColors.cafeOscuro
-                                : Colors.white,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 15,
-                              vertical: 14,
-                            ),
-                          ),
                         ),
+
                         SizedBox(width: 12),
 
-                        ElevatedButton(
+                        CustomButton(
+                          text: "Latte",
+                          icon: Icons.coffee_maker,
+                          backgroundColor: cafeSeleccionado == "Latte"
+                              ? AppColors.crema
+                              : Colors.grey.shade800,
+                          foregroundColor: cafeSeleccionado == "Latte"
+                              ? AppColors.cafeOscuro
+                              : Colors.white,
                           onPressed: () {
                             setState(() {
                               nombreCafe = "Latte";
@@ -145,31 +123,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               cafeSeleccionado = "Latte";
                             });
                           },
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Icon(Icons.coffee_maker, size: 18),
-                              SizedBox(width: 6),
-                              Text("Latte"),
-                            ],
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            elevation: 6,
-                            backgroundColor: cafeSeleccionado == "Latte"
-                                ? AppColors.crema
-                                : Colors.grey.shade800,
-                            foregroundColor: cafeSeleccionado == "Latte"
-                                ? AppColors.cafeOscuro
-                                : Colors.white,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 15,
-                              vertical: 14,
-                            ),
-                          ),
                         ),
+
                         SizedBox(width: 12),
                       ],
                     ),

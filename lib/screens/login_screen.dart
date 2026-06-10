@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../constants/app_colors.dart';
-import '../widgets/custom_button.dart';
+import '../widgets/cafe_button.dart';
 import 'home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -44,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               //TEXTOO INICIAR
-              Text(
+              const Text(
                 "Inicia sesión para continuar",
                 style: TextStyle(color: Colors.white70, fontSize: 16),
               ),
@@ -56,7 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   hintText: "Usuario",
                   prefixIcon: Icon(Icons.person_outline),
                   filled: true,
-                  fillColor: Colors.white.withOpacity(0.08),
+                  fillColor: Colors.white.withValues(alpha: 0.08),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
                     borderSide: BorderSide.none,
@@ -85,7 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                   ),
                   filled: true,
-                  fillColor: Colors.white.withOpacity(0.08),
+                  fillColor: Colors.white.withValues(alpha: .08),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
                     borderSide: BorderSide.none,
@@ -142,5 +142,14 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+
+  //para que elimine la info antes de cerrar la app
+  // Libera los controladores de texto al cerrar la pantalla
+  @override
+  void dispose() {
+    usuarioController.dispose();
+    passwordController.dispose();
+    super.dispose();
   }
 }
